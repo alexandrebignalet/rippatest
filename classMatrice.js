@@ -30,11 +30,11 @@ Matrice.prototype.setPoint = function(x,y,z, val){
 	if( val > 1000000000 ){
 		return console.log('Error: Update input value to high')
 	}
-	this.tab[x][y][z] = val
+	this.tab[x-1][y-1][z-1] = +val
 }
 
 Matrice.prototype.getPoint = function(x,y,z){
-	return this.tab[x][y][z]
+	return +this.tab[x-1][y-1][z-1]
 }
 
 Matrice.prototype.display = function(){
@@ -76,8 +76,8 @@ Matrice.prototype.query = function(IntegerList) {
 	}
 
 	for(var i = 0 ; i < IntegerList.length ; i++){
-		if(IntegerList[i] > this.size-1){
-			return console.log('Error: A point seleted isnt in the matrice')
+		if(IntegerList[i] > this.size){
+			return console.log('Error: A point seleted isnt in the matrice '+IntegerList[i]+' '+this.size)
 		}
 	}
 
@@ -99,7 +99,7 @@ Matrice.prototype.query = function(IntegerList) {
 
 
 /// TESTS ///
-
+console.log('TESTS Matrice Class')
 var matrice = new Matrice(4)
 if(typeof matrice === typeof new Matrice(0)){console.log('PASSED: ')}else{console.log('FAILED: ')}
 console.log('should create a new matrice object');
@@ -123,3 +123,4 @@ var integerList = [1,1,1,3,3,3]
 var sum = matrice.query(integerList)
 if(sum === 12){console.log('PASSED: ')}else{console.log('FAILED: ')}
 console.log('should the sum of the values of the points between (1,1,1) and (3,3,3) and print 12')
+console.log('********************  END Tests  ********************')

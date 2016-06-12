@@ -1,43 +1,42 @@
 module.exports = Testcase
 var Matrice = require('./classMatrice.js')
+	fs		= require('fs');
 
 function Testcase(input) {
 	this.output = []
 	this.input = this.formatInput(input)
-	this.casesCount = +input.slice(0,1)
-	this.matSize = +input.slice(0,1)
-	this.operationsCount = +input.slice(0,1)
+	this.casesCount = +this.input.shift()
+	this.matSize = +this.input.shift()
+	this.operationsCount = +this.input.shift()
 	this.matrice = new Matrice(this.matSize)
-
 	this.decodeInput()
 }
 
 Testcase.prototype.formatInput = function(input){
-	input = input.replace(/(\r)/gm,"");
-	return input.replace(/(\n)/gm," ");
+	input = input.replace(/(\r)/gm,"").replace(/(\n)/gm," ");
+	return input.split(" ");
 }
 
 Testcase.prototype.decodeInput = function(){
 
 	while( ( this.casesCount != 0 && this.input.length > 0 ) || operation === 'quit'){
-		var operation = this.input.slice(0,1);
-		console.log('operation: ',operation, this.input)
+		var operation = this.input.shift()
+
 		switch(operation){
 			case 'UPDATE':
-				var x = this.input.slice(0,1)
-				var y = this.input.slice(0,1)
-				var z = this.input.slice(0,1)
-				var val = this.input.slice(0,1)
+				var x = this.input.shift()
+				var y = this.input.shift()
+				var z = this.input.shift()
+				var val = this.input.shift()
 
 				this.matrice.setPoint(x,y,z,val)
-				console.log( getPoint(x,y,z) )
 				break;
 			case 'QUERY':
-			var integerList
+			var integerList = []
 				for(var i = 0; i < 6; i++){
-					integerList.push(this.input.slice(0,1))
+					integerList.push( +this.input.shift() )
 				}
-				console.log( this.matrice.query(integerList) )
+				console.log(this.matrice.query(integerList) )
 				break;
 			case 'quit':
 				console.log('acabado')
@@ -48,8 +47,8 @@ Testcase.prototype.decodeInput = function(){
 				//call output function
 				break;
 			default:
-				this.matSize = +this.input.slice(0,1)
-				this.operationsCount = +this.input.slice(0,1)
+				this.matSize = +operation
+				this.operationsCount = +this.input.shift()
 				this.matrice = new Matrice(this.matSize)
 				this.casesCount--;
 				break;
