@@ -96,7 +96,7 @@ var _input = [];
 process.stdin.on("data", function(input) {
 	_input += input;
 
-	if(input === 'quit\r\n'){
+	if(input === 'quit\r\n' || input === 'quit\n'){
 		console.log('\nReading user input\n')
 		processData(_input, true);
 	}

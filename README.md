@@ -46,14 +46,11 @@ A local file read is also available.
 
 For the command line input:
 
-- Windows OS
 Paste a sample of input then write < quit > and press enter to load the analyze.
-- UNIX OS
-Paste a sample of input then Ctrl+D to load the analyze.
 
 For webview input:
 
-- Upload a file containing a formatted input and click 'Upload'
+- Upload a file containing a formatted input and click 'Upload'. `./fileToUpload1.txt` or `./fileToUpload2.txt`
 - Paste a formatted input in the text input and click 'Envoyer'
 
 ## Testing
