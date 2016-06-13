@@ -1,0 +1,16 @@
+{
+  "name": "rippa-test-app",
+  "version": "0.0.1",
+  "description": "Example Express application for Rippa Test Process.",
+  "main": "app.js",
+  "keywords": [],
+  "author": "Alexandre BIGNALET",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "connect-busboy": "0.0.2",
+    "ejs": "0.7.2",
+    "express": "^4.13.3",
+    "open": "0.0.5",
+    "path": "^0.12.7"
+  }
+}

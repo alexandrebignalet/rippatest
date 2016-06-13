@@ -9,16 +9,16 @@ function Testcase(input) {
 	this.matSize = +this.input.shift()
 	this.operationsCount = +this.input.shift()
 	this.matrice = new Matrice(this.matSize)
-	this.decodeInput()
 }
 
 Testcase.prototype.formatInput = function(input){
-	input = input.replace(/(\r)/gm,"").replace(/(\n)/gm," ");
+	input = input.replace(/(\r)(\t)/gm,"").replace(/(\n)/gm," ");
 	return input.split(" ");
 }
 
-Testcase.prototype.decodeInput = function(){
+Testcase.prototype.decodeInput = function(commandLineDisplay){
 
+	var res = []
 	while( ( this.casesCount != 0 && this.input.length > 0 ) || operation === 'quit'){
 		var operation = this.input.shift()
 
@@ -32,11 +32,11 @@ Testcase.prototype.decodeInput = function(){
 				this.matrice.setPoint(x,y,z,val)
 				break;
 			case 'QUERY':
-			var integerList = []
+				var integerList = []
 				for(var i = 0; i < 6; i++){
 					integerList.push( +this.input.shift() )
 				}
-				console.log(this.matrice.query(integerList) )
+				res.push(this.matrice.query(integerList))
 				break;
 			case 'quit':
 				console.log('acabado')
@@ -53,6 +53,15 @@ Testcase.prototype.decodeInput = function(){
 				this.casesCount--;
 				break;
 		}
+	}
+
+	if( commandLineDisplay === true ){
+		for(var i = 0 ; i < res.length; i++){
+			console.log(res[i])
+		}
+	}
+	else {
+		return res;
 	}
 }
 

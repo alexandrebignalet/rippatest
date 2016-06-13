@@ -36,13 +36,6 @@ app.route('/')
     	res.render('./index', { outputData: []})
     });
 
-app.route('/input')
-    .post(function (req, res) {
-    	var input = req.body.userWebInput
-    	var outputData = processData(input, false)
-    	res.render('./index', { outputData: outputData})
-    });
-
 app.route('/output')
     .get(function (req, res) {
     	var _uploadedFile = [];
