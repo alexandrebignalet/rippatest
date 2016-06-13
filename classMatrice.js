@@ -77,7 +77,7 @@ Matrice.prototype.query = function(IntegerList) {
 
 	for(var i = 0 ; i < IntegerList.length ; i++){
 		if(IntegerList[i] > this.size){
-			return console.log('Error: A point seleted isnt in the matrice '+IntegerList[i]+' '+this.size)
+			return console.log('Error: A point seleted isnt in the matrice ')
 		}
 	}
 

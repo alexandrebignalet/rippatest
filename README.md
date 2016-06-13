@@ -15,7 +15,7 @@ Run `node cube_sommation.js` to launch the program.
 
 ###classMatrice.js
 
-Contains the implementation of the class Matrice which allow to create a new N*N*N matrix.
+Contains the implementation of the class Matrice which allow to create a new NxNxN matrix.
 
 Getters and Setters allow to put or retrieve data from the matrix.
 
@@ -53,10 +53,8 @@ Paste a sample of input then Ctrl+D to load the analyze.
 
 For webview input:
 
--Upload a file containing a formatted input and click 'Upload'
--Paste a formatted input in the text input and click 'Envoyer'
-
-For 
+- Upload a file containing a formatted input and click 'Upload'
+- Paste a formatted input in the text input and click 'Envoyer'
 
 ## Testing
 
